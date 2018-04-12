@@ -9,9 +9,9 @@
 
 ### Introduction
 
-As you've seen in recent lessons, data science leans on data visualizations to draw inferences about our data, and to make sense of the math we use in making sense of this data.  We saw how plotting data with a bar chart can be used to show the relationship between $x$ and $y$ variables and how the impact that changing the y-intercept or slope variable has on a regression line.  
+As you've seen in recent lessons, data science leans on data visualizations to draw inferences about our data, and to make sense of the math we use in making sense of this data.  We saw how plotting data with a bar chart can be used to show the relationship between $x$ and $y$ variables.  
 
-In this lesson, we'll explore even more functionality of the Plotly library.  As we do so, pay careful attention to the data type that our methods require: whether they are dictionaries or arrays, or arrays of dictionaries.  Ok, let's go!
+In this lesson, we'll explore more of the functionality of the Plotly library.  As we do so, pay careful attention to the data type that our methods require: whether they are dictionaries or lists, or lists of dictionaries.  Ok, let's go!
 
 ### Drawing a line
 
@@ -22,7 +22,7 @@ As you know, to get started with Plotly, we first install the library on our com
 !pip install plotly
 ```
 
-If plotly is already on your computer, pip will tell you that the require is already satisfied.  That's ok, we can happily proceed.
+If plotly is already on your computer, pip will tell you that the requirement is already satisfied.  That's ok, we can happily proceed.
 
 The next step is to import the plotly library. 
 
@@ -33,10 +33,6 @@ from plotly.offline import iplot, init_notebook_mode
 init_notebook_mode(connected=True)
 ```
 
-
-<script>requirejs.config({paths: { 'plotly': ['https://cdn.plot.ly/plotly-latest.min']},});if(!window.Plotly) {{require(['plotly'],function(plotly) {window.Plotly=plotly;});}}</script>
-
-
 If we plot offline, we do not need to provide a login.  So we plot offline, while plotting our first plot with the below line.
 
 
@@ -46,10 +42,6 @@ plotly.offline.iplot([
 ])
 ```
 
-
-<div id="3a85d414-1e12-4099-a932-97edc5e69ba0" style="height: 525px; width: 100%;" class="plotly-graph-div"></div><script type="text/javascript">require(["plotly"], function(Plotly) { window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";Plotly.newPlot("3a85d414-1e12-4099-a932-97edc5e69ba0", [{}], {}, {"showLink": true, "linkText": "Export to plot.ly"})});</script>
-
-
 Let's take another look at that line of code.
 ```python
 plotly.offline.iplot([
@@ -57,9 +49,9 @@ plotly.offline.iplot([
 ])
 ```
 
-We reference the `plotly` library, which we imported above.  Then to the `iplot` method we pass a list, which has a dictionary in it.  That dictionary can represent a scatter trace, a line trace, or other types of traces.  
+We reference the `plotly` library, which we imported above.  Then we pass a list containing a dictionary to the `iplot` method.  That dictionary can represent a scatter trace, a line trace, or other types of traces.  
 
-We pass the trace into a list because we can have more then one trace in the same graph - for example two bar traces displayed side by side or a scatter trace underneath a line trace.  
+We pass the trace into a list because we can have more than one trace in the same graph - for example two bar traces displayed side by side or a scatter trace underneath a line trace.  
 
 Now let's discuss how a trace represents data.  In the `trace` in the code below, we plot four points.  Notice that we provide the $x$ and $y$ coordinates in two separate attributes of the dictionary.  Change around the data to get a feel for how it works.
 
@@ -72,11 +64,7 @@ plotly.offline.iplot([
 ])
 ```
 
-
-<div id="e58e0367-a417-4863-a631-a873dc936967" style="height: 525px; width: 100%;" class="plotly-graph-div"></div><script type="text/javascript">require(["plotly"], function(Plotly) { window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";Plotly.newPlot("e58e0367-a417-4863-a631-a873dc936967", [{"x": [1, 2, 3, 4], "y": [1, 2, 3, 4]}], {}, {"showLink": true, "linkText": "Export to plot.ly"})});</script>
-
-
-The plot above has one trace which is a line trace.  However this type of trace is just the default.  Note, that we did not specify any particular type.
+The plot above has one trace which is a line trace.  However, this type of trace is just the default.  Note, that we did not specify any particular type.
 
 ```python
 trace = {'x': [1, 2, 3, 4], 'y': [1, 2, 3, 4]}
@@ -92,10 +80,6 @@ plotly.offline.iplot([
     trace
 ])
 ```
-
-
-<div id="428fe276-9942-4b5e-94f6-8a989670cb26" style="height: 525px; width: 100%;" class="plotly-graph-div"></div><script type="text/javascript">require(["plotly"], function(Plotly) { window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";Plotly.newPlot("428fe276-9942-4b5e-94f6-8a989670cb26", [{"x": [1, 2, 3, 4], "y": [1, 2, 3, 4], "mode": "markers", "marker": {"color": "rgba(255, 182, 193, .9)"}}], {}, {"showLink": true, "linkText": "Export to plot.ly"})});</script>
-
 
 Cool!  So we changed the code to markers and changed the colors of those markers by setting the rgb (red, green, blue) value.
 
@@ -130,10 +114,6 @@ plotly.offline.iplot([
 ])
 ```
 
-
-<div id="731b3213-d23e-46c1-b2d5-b3c5132c016b" style="height: 525px; width: 100%;" class="plotly-graph-div"></div><script type="text/javascript">require(["plotly"], function(Plotly) { window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";Plotly.newPlot("731b3213-d23e-46c1-b2d5-b3c5132c016b", [{"x": [1, 2, 3, 4], "y": [1, 2, 3, 4], "mode": "markers", "marker": {"color": "rgba(255, 182, 193, .9)"}, "name": "Some dots"}, {"x": [1.5, 2.5, 3.5, 4.5], "y": [3, 5, 7, 9], "marker": {"color": "blue"}, "name": "Our nice line"}], {}, {"showLink": true, "linkText": "Export to plot.ly"})});</script>
-
-
 ### Working with types
 
 So far, we have only worked with either scatter charts or line charts.  The two charts are really quite similar -- connecting lines versus no connecting lines  -- and plotly treats them as such.  However, there are other ways of viewing the world beyond dots and lines.  Now let's see how.
@@ -149,11 +129,7 @@ plotly.offline.iplot([
 ])
 ```
 
-
-<div id="eda06702-234a-4fea-b4c2-fcc22641800d" style="height: 525px; width: 100%;" class="plotly-graph-div"></div><script type="text/javascript">require(["plotly"], function(Plotly) { window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";Plotly.newPlot("eda06702-234a-4fea-b4c2-fcc22641800d", [{"type": "bar", "x": ["bobby", "susan", "eli", "malcolm"], "y": [3, 5, 7, 9], "marker": {"color": "blue"}, "name": "Our nice bar trace"}], {}, {"showLink": true, "linkText": "Export to plot.ly"})});</script>
-
-
-Now another way to create a bar chart is to use the constructor provided by plotly.  It's not too tricky to do so.  First, we import our `graph_objs` library from Plotly.  And then we call the bar chart constructor. 
+Another way to create a bar chart is to use the constructor provided by plotly.  It's not too tricky to do so.  First, we import our `graph_objs` library from Plotly.  And then we call the bar chart constructor. 
 
 
 ```python
@@ -166,13 +142,6 @@ bar_trace_via_constructor = graph_objs.Bar(
 
 bar_trace_via_constructor
 ```
-
-
-
-
-    {'type': 'bar', 'x': ['bobby', 'susan', 'eli', 'malcolm'], 'y': [3, 5, 7, 9]}
-
-
 
 We refer to the function `graph_objs.Bar` as a constructor because it literally constructs python dictionaries with a key of `type` that equals `bar`.  Then, we can pass this dictionary to our `iplot` method to display our bar chart.
 
@@ -189,10 +158,6 @@ plotly.offline.iplot([
 ])
 ```
 
-
-<div id="feae0ef3-682c-45d1-b96d-e4878c184f88" style="height: 525px; width: 100%;" class="plotly-graph-div"></div><script type="text/javascript">require(["plotly"], function(Plotly) { window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";Plotly.newPlot("feae0ef3-682c-45d1-b96d-e4878c184f88", [{"type": "bar", "x": ["bobby", "susan", "eli", "malcolm"], "y": [3, 5, 7, 9]}], {}, {"showLink": true, "linkText": "Export to plot.ly"})});</script>
-
-
 Now let's look at some constructors for make other traces.  
 
 
@@ -201,23 +166,9 @@ graph_objs.Scatter()
 ```
 
 
-
-
-    {'type': 'scatter'}
-
-
-
-
 ```python
 graph_objs.Pie()
 ```
-
-
-
-
-    {'type': 'pie'}
-
-
 
 And of course, we can always use the dictionary constructor to create our dictionaries.
 
@@ -229,10 +180,6 @@ plotly.offline.iplot([
     pie_trace
 ])
 ```
-
-
-<div id="464546ec-26b8-45fc-85dd-2778fbb02ee4" style="height: 525px; width: 100%;" class="plotly-graph-div"></div><script type="text/javascript">require(["plotly"], function(Plotly) { window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";Plotly.newPlot("464546ec-26b8-45fc-85dd-2778fbb02ee4", [{"type": "pie", "labels": ["chocolate", "vanilla", "strawberry"], "values": [10, 5, 15]}], {}, {"showLink": true, "linkText": "Export to plot.ly"})});</script>
-
 
 ### Modifying a Chart Layout
 
@@ -247,7 +194,7 @@ trace_of_data = {'x': [1.5, 2.5, 3.5, 4.5], 'y': [3, 5, 7, 9],
                  'name': 'Our nice line'}
 ```
 
-However, instead of passing to our `iplot` function an array of traces, we pass our `iplot` function a dictionary with a `data` key, which has a value of an array of traces.  And a `layout` key, with a value of a dictionary representing our layout.
+However, instead of passing to our `iplot` function a list of traces, we pass our `iplot` function a dictionary with a `data` key, which has a value of a list of traces.  The `layout` key points to a dictionary representing our layout.
 
 
 ```python
@@ -259,11 +206,7 @@ figure = {'data': [trace_of_data], 'layout': layout}
 plotly.offline.iplot(figure)
 ```
 
-
-<div id="b6fb3a9b-9e10-4c0a-a9f1-f04425141759" style="height: 525px; width: 100%;" class="plotly-graph-div"></div><script type="text/javascript">require(["plotly"], function(Plotly) { window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";Plotly.newPlot("b6fb3a9b-9e10-4c0a-a9f1-f04425141759", [{"x": [1.5, 2.5, 3.5, 4.5], "y": [3, 5, 7, 9], "marker": {"color": "blue"}, "name": "Our nice line"}], {"title": "Scatter Plot"}, {"showLink": true, "linkText": "Export to plot.ly"})});</script>
-
-
-So above we used the `layout` to name our plot's title.  Now that we have used `layout` to specify our chart's title, let's also use it to specify our x axis range and y axis range.  Currently, we are allowing Plotly to automatically set our range.  But we can also specify this.
+So above we used the `layout` to name our plot's title.  Now that we have used `layout` to specify our chart's title, let's also use it to specify the range of our x axis and y axis.  Previously, we were allowing Plotly to automatically set the range.  We can also adjust the range to meet our specifications.
 
 
 ```python
@@ -275,12 +218,8 @@ figure = {'data': [trace_of_data], 'layout': layout}
 plotly.offline.iplot(figure)
 ```
 
-
-<div id="43720a27-19ee-4e0e-91b1-587492959219" style="height: 525px; width: 100%;" class="plotly-graph-div"></div><script type="text/javascript">require(["plotly"], function(Plotly) { window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";Plotly.newPlot("43720a27-19ee-4e0e-91b1-587492959219", [{"x": [1.5, 2.5, 3.5, 4.5], "y": [3, 5, 7, 9], "marker": {"color": "blue"}, "name": "Our nice line"}], {"title": "Scatter Plot", "xaxis": {"range": [1, 10]}, "yaxis": {"range": [1, 10]}}, {"showLink": true, "linkText": "Export to plot.ly"})});</script>
-
-
-So now, we can better see how the chart shows the proportional change between x and y values.
+We can see how adjusting the range changes our perspective of the plotted x and y values.
 
 ### Summary
 
-In this section we saw how we can use Plotly's library to create data visualisations.  We create different traces to represent our data, with each trace represented as a dictionary which is passed to our `iplot` method.  We saw we can have multiple traces displayed in the chart, as the traces are wrapped in an array.  We saw that even when we use constructors like `graph_objs.Bar` to create a chart, all this does is create a dictionary which is then passed to our `iplot` method.  Then we moved onto modifying our layout for our charts, which is also just a python dictionary.  
+In this section we explored more of Plotly's library to create different data visualisations.  We created different traces to represent our data, with each trace represented as a dictionary passed to our `iplot` method.  We saw how to display multiple traces in a chart by wrapping the traces in a list.  We learned how to use constructors like `graph_objs.Bar` to create a chart. The constructor creates a dictionary that we can pass to our `iplot` method.  Finally, we moved onto modifying the layout of our charts with another python dictionary.
