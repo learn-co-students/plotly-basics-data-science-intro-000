@@ -24,7 +24,7 @@ As you know, to get started with Plotly, we first install the library on our com
 
 If plotly is already on your computer, pip will tell you that the requirement is already satisfied.  That's ok, we can happily proceed.
 
-The next step is to import the plotly library. 
+The next step is to import the plotly library.
 
 
 ```python
@@ -91,8 +91,8 @@ Now let's add more than one trace to a given graph.  We'll keep the first trace 
 
 
 ```python
-trace0 = {'x': [1, 2, 3, 4], 'y': [1, 2, 3, 4], 
-          'mode': 'markers', 'marker': {'color': 'rgba(255, 182, 193, .9)'}, 
+trace0 = {'x': [1, 2, 3, 4], 'y': [1, 2, 3, 4],
+          'mode': 'markers', 'marker': {'color': 'rgba(255, 182, 193, .9)'},
           'name': 'Some dots'}
 ```
 
@@ -100,7 +100,7 @@ In the second trace, we have some new data, and set the color as blue.  Because 
 
 
 ```python
-trace1 = {'x': [1.5, 2.5, 3.5, 4.5], 'y': [3, 5, 7, 9], 
+trace1 = {'x': [1.5, 2.5, 3.5, 4.5], 'y': [3, 5, 7, 9],
           'marker': {'color': 'blue'},
           'name': 'Our nice line'}
 ```
@@ -129,11 +129,11 @@ plotly.offline.iplot([
 ])
 ```
 
-Another way to create a bar chart is to use the constructor provided by plotly.  It's not too tricky to do so.  First, we import our `graph_objs` library from Plotly.  And then we call the bar chart constructor. 
+Another way to create a bar chart is to use the constructor provided by plotly.  It's not too tricky to do so.  First, we import our `graph_objs` library from Plotly.  And then we call the bar chart constructor.
 
 
 ```python
-from plotly import graph_objs 
+from plotly import graph_objs
 
 bar_trace_via_constructor = graph_objs.Bar(
             x=['bobby', 'susan', 'eli', 'malcolm'],
@@ -189,7 +189,7 @@ Note that the format of our traces will not change.
 
 
 ```python
-trace_of_data = {'x': [1.5, 2.5, 3.5, 4.5], 'y': [3, 5, 7, 9], 
+trace_of_data = {'x': [1.5, 2.5, 3.5, 4.5], 'y': [3, 5, 7, 9],
                  'marker': {'color': 'blue'},
                  'name': 'Our nice line'}
 ```
@@ -222,4 +222,4 @@ We can see how adjusting the range changes our perspective of the plotted x and 
 
 ### Summary
 
-In this section we explored more of Plotly's library to create different data visualisations.  We created different traces to represent our data, with each trace represented as a dictionary passed to our `iplot` method.  We saw how to display multiple traces in a chart by wrapping the traces in a list.  We learned how to use constructors like `graph_objs.Bar` to create a chart. The constructor creates a dictionary that we can pass to our `iplot` method.  Finally, we moved onto modifying the layout of our charts with another python dictionary.
+In this section we explored more of Plotly's library to create different data visualizations.  We created different traces to represent our data, with each trace represented as a dictionary passed to our `iplot` method.  We saw how to display multiple traces in a chart by wrapping the traces in a list.  We learned how to use constructors like `graph_objs.Bar` to create a chart. The constructor creates a dictionary that we can pass to our `iplot` method.  Finally, we moved onto modifying the layout of our charts with another python dictionary.
