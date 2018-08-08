@@ -1,5 +1,5 @@
 
-# Going deeper with Plotly
+# Going Deeper with Plotly
 
 ### Learning Objectives
 
@@ -118,7 +118,7 @@ plotly.offline.iplot([
 
 So far, we have only worked with either scatter charts or line charts.  The two charts are really quite similar -- connecting lines versus no connecting lines  -- and plotly treats them as such.  However, there are other ways of viewing the world beyond dots and lines.  Now let's see how.
 
-For example, we can make a bar chart, simply by specifying the in our dictionary that the `type` is `bar` for a `bar` trace.
+For example, we can make a bar chart simply by specifying the `type` is `bar` for a `bar` trace in our dictionary.
 
 
 ```python
